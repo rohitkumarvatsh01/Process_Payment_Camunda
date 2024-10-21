@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="yes"?>
+<definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:tns="http://bpmn.io/schema/bpmn" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yaoqiang="http://bpmn.sourceforge.net" exporter="Camunda Web Modeler" exporterVersion="957e002" expressionLanguage="http://www.w3.org/1999/XPath" id="Definitions_1" name="" targetNamespace="http://bpmn.io/schema/bpmn" typeLanguage="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://bpmn.sourceforge.net/schemas/BPMN20.xsd">
+  <bpmn:process id="Process_0th9cg2" isClosed="false" isExecutable="true" name="Process payments" processType="None">
+    <bpmn:extensionElements>
+      <yaoqiang:description/>
+      <yaoqiang:pageFormat height="841.8897637795276" imageableHeight="831.8897637795276" imageableWidth="588.1102362204724" imageableX="5.0" imageableY="5.0" orientation="0" width="598.1102362204724"/>
+      <yaoqiang:page background="#FFFFFF" horizontalCount="1" verticalCount="1"/>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1" isInterrupting="true" name="Payment Request Received" parallelMultiple="false">
+      <bpmn:outgoing>Flow_18s0yjw</bpmn:outgoing>
+      <bpmn:outputSet/>
+    </bpmn:startEvent>
+    <bpmn:task completionQuantity="1" id="Activity_1rd7i4r" isForCompensation="false" name="Prepare Transaction" startQuantity="1">
+      <bpmn:incoming>Flow_18s0yjw</bpmn:incoming>
+      <bpmn:outgoing>Flow_1t9isy4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_18s0yjw" sourceRef="StartEvent_1" targetRef="Activity_1rd7i4r"/>
+    <bpmn:task completionQuantity="1" id="Activity_1m5fc51" isForCompensation="false" name="Charge Credit Card" startQuantity="1">
+      <bpmn:incoming>Flow_1t9isy4</bpmn:incoming>
+      <bpmn:outgoing>Flow_1en1ro0</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1t9isy4" sourceRef="Activity_1rd7i4r" targetRef="Activity_1m5fc51"/>
+    <bpmn:endEvent id="Event_04vq8u3" name="Payment Executed">
+      <bpmn:incoming>Flow_1en1ro0</bpmn:incoming>
+      <bpmn:inputSet/>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1en1ro0" sourceRef="Activity_1m5fc51" targetRef="Event_04vq8u3"/>
+    <bpmn:textAnnotation id="TextAnnotation_19m9csf" textFormat="text/plain">
+      <bpmn:text>Log Variable on Console</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association associationDirection="None" id="Association_05b16ma" sourceRef="Activity_1m5fc51" targetRef="TextAnnotation_19m9csf"/>
+    <bpmn:textAnnotation id="TextAnnotation_02vdiub" textFormat="text/plain">
+      <bpmn:text>Evaluate Expression and Store in Variable</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association associationDirection="None" id="Association_1qmd0xp" sourceRef="Activity_1rd7i4r" targetRef="TextAnnotation_02vdiub"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Yaoqiang_Diagram-Process_0th9cg2" name="Untitled Diagram" resolution="96.0">
+    <bpmndi:BPMNPlane bpmnElement="Process_0th9cg2">
+      <bpmndi:BPMNShape bpmnElement="Event_04vq8u3" id="Yaoqiang-Event_04vq8u3">
+        <dc:Bounds height="32.0" width="32.0" x="1042.0" y="190.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="95.0" x="1013.0" y="236.16"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Activity_1m5fc51" id="Yaoqiang-Activity_1m5fc51">
+        <dc:Bounds height="80.0" width="100.0" x="700.0" y="168.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="35.63" width="72.0" x="714.0" y="192.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="StartEvent_1" id="Yaoqiang-StartEvent_1">
+        <dc:Bounds height="32.0" width="32.0" x="182.0" y="190.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="138.0" x="131.5" y="236.16"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="Activity_1rd7i4r" id="Yaoqiang-Activity_1rd7i4r">
+        <dc:Bounds height="80.0" width="100.0" x="370.0" y="168.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="35.63" width="63.0" x="388.5" y="192.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_19m9csf" id="Yaoqiang-TextAnnotation_19m9csf">
+        <dc:Bounds height="41.0" width="100.0" x="800.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="124.0" x="800.0" y="92.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="TextAnnotation_02vdiub" id="Yaoqiang-TextAnnotation_02vdiub">
+        <dc:Bounds height="41.0" width="130.0" x="480.0" y="80.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="208.0" x="480.0" y="92.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="Flow_1en1ro0" id="Yaoqiang-Flow_1en1ro0">
+        <di:waypoint x="800.0" y="208.0"/>
+        <di:waypoint x="1042.0" y="206.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="6.0" x="918.0" y="196.68"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_18s0yjw" id="Yaoqiang-Flow_18s0yjw">
+        <di:waypoint x="214.0" y="206.0"/>
+        <di:waypoint x="370.0" y="208.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="6.0" x="289.0" y="196.68"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Flow_1t9isy4" id="Yaoqiang-Flow_1t9isy4">
+        <di:waypoint x="470.0" y="208.0"/>
+        <di:waypoint x="700.0" y="208.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="6.0" x="582.0" y="197.68"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Association_1qmd0xp" id="Yaoqiang-Association_1qmd0xp">
+        <di:waypoint x="466.51162790697674" y="168.0"/>
+        <di:waypoint x="521.1627906976744" y="121.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="6.0" x="490.84" y="134.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="Association_05b16ma" id="Yaoqiang-Association_05b16ma">
+        <di:waypoint x="787.2093023255813" y="168.0"/>
+        <di:waypoint x="830.9302325581396" y="121.0"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds height="20.63" width="6.0" x="806.07" y="134.18"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

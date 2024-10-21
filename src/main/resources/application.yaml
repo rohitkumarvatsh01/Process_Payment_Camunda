@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: MyPaymentApp
+
+camunda:
+  client:
+    zeebe:
+      grpc-address: http://127.0.0.1:26500 # Address to connect to the Zeebe service
